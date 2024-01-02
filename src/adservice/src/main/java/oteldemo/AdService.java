@@ -88,7 +88,7 @@ public final class AdService {
     FlagdProvider flagdProvider = new FlagdProvider(options);
     // Set flagd as the OpenFeature Provider
     OpenFeatureAPI.getInstance().setProvider(flagdProvider);
-  
+
     server =
         ServerBuilder.forPort(port)
             .addService(new AdServiceImpl())
@@ -127,7 +127,7 @@ public final class AdService {
   }
 
   private static class AdServiceImpl extends oteldemo.AdServiceGrpc.AdServiceImplBase {
-    
+
     private static final String ADSERVICE_FAILURE = "adServiceFailure";
     private static final String ADSERVICE_MANUAL_GC_FEATURE_FLAG = "adServiceManualGc";
 
@@ -180,6 +180,11 @@ public final class AdService {
             1,
             Attributes.of(
                 adRequestTypeKey, adRequestType.name(), adResponseTypeKey, adResponseType.name()));
+
+        // TODO(workshop1-java)
+        // Please add metrics or change the existing metrics to be able to query for the average ads count (allAds.size()) per request
+        // What is the least amount of metrics to achieve this?
+        // After making the changes, restart the service with `make restart service=adservice`
 
         if (getFeatureFlagEnabled(ADSERVICE_FAILURE)) {
           throw new StatusRuntimeException(Status.UNAVAILABLE);
