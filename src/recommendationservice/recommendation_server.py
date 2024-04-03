@@ -51,6 +51,11 @@ class RecommendationService(demo_pb2_grpc.RecommendationServiceServicer):
         response = demo_pb2.ListRecommendationsResponse()
         response.product_ids.extend(prod_list)
 
+        # TODO(workshop1-python)
+        # Please add metrics or change the existing metrics to be able to query for the average prod_list length per request
+        # What is the least amount of metrics to achieve this?
+        # After making the changes, restart the service with `make restart service=recommendationservice`
+
         # Collect metrics for this service
         rec_svc_metrics["app_recommendations_counter"].add(len(prod_list), {'recommendation.type': 'catalog'})
 
