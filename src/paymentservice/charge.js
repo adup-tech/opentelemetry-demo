@@ -64,5 +64,11 @@ module.exports.charge = async request => {
   const { units, nanos, currencyCode } = request.amount;
   logger.info({transactionId, cardType, lastFourDigits, amount: { units, nanos, currencyCode }}, "Transaction complete.");
   transactionsCounter.add(1, {"app.payment.currency": currencyCode})
+
+  // TODO(workshop1-js)
+  // Please add metrics or change the existing metrics to be able to query for the average request.amount.nanos per request
+  // What is the least amount of metrics to achieve this?
+  // After making the changes, restart the service with `make restart service=paymentservice`
+
   return { transactionId }
 }
