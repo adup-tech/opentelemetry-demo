@@ -73,5 +73,12 @@ module.exports.charge = async request => {
   // TODO(workshop1-js-grafana)
   // Please add a new Panel in Grafana that shows the average request.amount.nanos per request
 
+  // TODO(workshop2-js)
+  // Add metrics to track potential exceptions
+
+  // TODO(workshop2-js-grafana)
+  // Add new panel to the Grafana dashboard that shows the number of exceptions in the service in a meaningful way
+  // Add an alert if exception are tracked
+
   return { transactionId }
 }

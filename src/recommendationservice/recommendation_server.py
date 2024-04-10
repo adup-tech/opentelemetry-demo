@@ -57,10 +57,17 @@ class RecommendationService(demo_pb2_grpc.RecommendationServiceServicer):
         # After making the changes, rebuild and restart the service with `make redeploy service=recommendationservice`
 
         # TODO(workshop1-python-grafana)
-        # Please add a new panel to the Grafana dashboard that shows the average prod_list length per request
+        # Add a new panel to the Grafana dashboard that shows the average prod_list length per request
 
         # Collect metrics for this service
         rec_svc_metrics["app_recommendations_counter"].add(len(prod_list), {'recommendation.type': 'catalog'})
+
+        # TODO(workshop2-python)
+        # Add metrics to track potential exceptions in the service
+
+        # TODO(workshop2-python-grafana)
+        # Add new panel to the Grafana dashboard that shows the number of exceptions in the service in a meaningful way
+        # Add an alert if exception are tracked
 
         return response
 
