@@ -56,6 +56,9 @@ class RecommendationService(demo_pb2_grpc.RecommendationServiceServicer):
         # What is the least amount of metrics to achieve this?
         # After making the changes, rebuild and restart the service with `make redeploy service=recommendationservice`
 
+        # TODO(workshop1-python-grafana)
+        # Please add a new panel to the Grafana dashboard that shows the average prod_list length per request
+
         # Collect metrics for this service
         rec_svc_metrics["app_recommendations_counter"].add(len(prod_list), {'recommendation.type': 'catalog'})
 

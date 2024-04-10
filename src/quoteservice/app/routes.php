@@ -59,6 +59,9 @@ return function (App $app) {
         # Create a meter like this:
         # $meter = Globals::meterProvider()->getMeter("manual-instrumentation");
 
+        # TODO(workshop1-php-grafana)
+        # Please add a new panel to the Grafana dashboard that shows the average cost ($data) per request
+
         $span->addEvent('Quote processed, response sent back', [
             'app.quote.cost.total' => $data
         ]);

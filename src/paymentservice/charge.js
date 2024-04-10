@@ -70,5 +70,8 @@ module.exports.charge = async request => {
   // What is the least amount of metrics to achieve this?
   // After making the changes, rebuild and restart the service with `make redeploy service=paymentservice`
 
+  // TODO(workshop1-js-grafana)
+  // Please add a new Panel in Grafana that shows the average request.amount.nanos per request
+
   return { transactionId }
 }
