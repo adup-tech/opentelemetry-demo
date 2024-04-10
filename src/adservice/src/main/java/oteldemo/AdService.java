@@ -181,10 +181,10 @@ public final class AdService {
             Attributes.of(
                 adRequestTypeKey, adRequestType.name(), adResponseTypeKey, adResponseType.name()));
 
-		// TODO(workshop1-java)
+		    // TODO(workshop1-java)
         // Please add metrics or change the existing metrics to be able to query for the average ads count (allAds.size()) per request
         // What is the least amount of metrics to achieve this?
-        // After making the changes, restart the service with `make restart service=adservice`
+        // After making the changes, rebuild and restart the service with `make redeploy service=adservice`
         
         if (getFeatureFlagEnabled(ADSERVICE_FAILURE)) {
           throw new StatusRuntimeException(Status.UNAVAILABLE);

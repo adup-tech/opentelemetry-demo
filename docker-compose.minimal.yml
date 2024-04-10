@@ -336,8 +336,6 @@ services:
     depends_on:
       frontend:
         condition: service_started
-      flagd:
-        condition: service_started
     logging: *logging
 
   # Payment service

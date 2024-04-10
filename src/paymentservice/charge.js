@@ -68,7 +68,7 @@ module.exports.charge = async request => {
   // TODO(workshop1-js)
   // Please add metrics or change the existing metrics to be able to query for the average request.amount.nanos per request
   // What is the least amount of metrics to achieve this?
-  // After making the changes, restart the service with `make restart service=paymentservice`
+  // After making the changes, rebuild and restart the service with `make redeploy service=paymentservice`
 
   return { transactionId }
 }

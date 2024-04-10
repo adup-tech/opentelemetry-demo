@@ -52,10 +52,12 @@ return function (App $app) {
         $payload = json_encode($data);
         $response->getBody()->write($payload);
 
-        # TODO(workshop1-python)
-        # Please add metrics or change the existing metrics to be able to query for the average prod_list length per request
+        # TODO(workshop1-php)
+        # Please add metrics or change the existing metrics to be able to query for the average cost ($data) per request
         # What is the least amount of metrics to achieve this?
-        # After making the changes, restart the service with `make restart service=recommendationservice`
+        # After making the changes, rebuild and restart the service with `make redeploy service=quoteservice`
+        # Create a meter like this:
+        # $meter = Globals::meterProvider()->getMeter("manual-instrumentation");
 
         $span->addEvent('Quote processed, response sent back', [
             'app.quote.cost.total' => $data
